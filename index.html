@@ -1,9 +1,102 @@
-<html>
-    <head>
-        <title>Controle Financeiro</title>
-    </head>
-    <body>
-        <h1>Controle Financeiro</h1>
-        <p>Controle Financeiro</p>
-    </body>
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Controle Financeiro - Protótipo</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>Controle Financeiro</h1>
+    <div class="subtitle">Protótipo — Sprint 1</div>
+  </div>
+  <div class="muted">Usuário: Você</div>
+</header>
+
+<main class="container">
+  <section class="card">
+    <h3>Nova Transação</h3>
+    <form id="tx-form" autocomplete="off">
+      <div class="row">
+        <div style="flex:1">
+          <label for="date">Data</label>
+          <input id="date" type="date" required>
+        </div>
+        <div style="width:120px">
+          <label for="type">Tipo</label>
+          <select id="type" required>
+            <option value="income">Receita</option>
+            <option value="expense">Despesa</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <label for="desc">Descrição</label>
+        <input id="desc" type="text" placeholder="Ex: Salário, Supermercado" required>
+      </div>
+
+      <div class="row" style="margin-top:8px">
+        <div style="flex:1">
+          <label for="category">Categoria</label>
+          <input id="category" type="text" placeholder="Ex: Renda, Alimentação" required>
+        </div>
+        <div style="width:160px">
+          <label for="value">Valor (R$)</label>
+          <input id="value" type="number" step="0.01" min="0" placeholder="0.00" required>
+        </div>
+      </div>
+
+      <div style="display:flex; gap:8px; margin-top:12px; align-items:center">
+        <button class="btn btn-primary" type="submit">Adicionar</button>
+        <button id="clear-btn" type="button" class="btn btn-ghost">Limpar</button>
+        <div style="flex:1"></div>
+        <div class="muted" id="form-msg" aria-live="polite"></div>
+      </div>
+    </form>
+
+    <hr style="margin:16px 0; border:none; border-top:1px solid #eef2f6">
+
+    <div class="totals">
+      <div class="total-box">
+        <h4>Receitas</h4>
+        <p id="total-income">R$ 0,00</p>
+      </div>
+      <div class="total-box">
+        <h4>Despesas</h4>
+        <p id="total-expense">R$ 0,00</p>
+      </div>
+      <div class="total-box">
+        <h4>Saldo</h4>
+        <p id="total-balance">R$ 0,00</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h3>Transações</h3>
+    <div class="muted" style="font-size:13px; margin-bottom:10px">Lista de transações recentes</div>
+
+    <div id="transactions" class="transactions-list" aria-live="polite"></div>
+
+    <div style="margin-top:12px; display:flex; gap:8px; align-items:center">
+      <button id="export-json" class="btn btn-ghost">Exportar JSON</button>
+      <button id="import-json" class="btn btn-ghost">Importar JSON</button>
+      <input id="import-file" type="file" accept="application/json" style="display:none">
+      <div style="flex:1"></div>
+      <button id="clear-all" class="btn" style="background:#fff; border:1px solid #f1f3f6">Limpar tudo</button>
+    </div>
+  </section>
+</main>
+
+<footer>
+  Protótipo criado para a Sprint 1 — Implementação inicial do fluxo de transações.
+</footer>
+
+  <script src="js/script.js" defer></script>
+</body>
 </html>
+

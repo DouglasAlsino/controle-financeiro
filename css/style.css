@@ -1,0 +1,118 @@
+:root {
+  --bg: #f5f7fb;
+  --card: #ffffff;
+  --primary: #1565c0;
+  --accent: #2e7d32;
+  --danger: #c62828;
+  --text: #222;
+  --muted: #6b7280;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+header {
+  background: linear-gradient(90deg, var(--primary), #1e88e5);
+  color: #fff;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header h1 { margin: 0; font-size: 18px; font-weight: 600; }
+header .subtitle { font-size: 13px; opacity: .9; }
+
+.container {
+  max-width: 1000px;
+  margin: 24px auto;
+  padding: 0 16px;
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 18px;
+}
+
+.card {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 6px 18px rgba(20,20,40,0.06);
+}
+
+form .row { display: flex; gap: 8px; margin-bottom: 10px; }
+label { display: block; font-size: 13px; margin-bottom: 6px; color: var(--muted); }
+input, select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #e6e9ef;
+  font-size: 14px;
+  background: #fff;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 0;
+  cursor: pointer;
+  font-weight: 600;
+}
+.btn-primary { background: var(--primary); color: #fff; }
+.btn-ghost { background: transparent; border: 1px solid #e6e9ef; color: var(--text); }
+
+.muted { color: var(--muted); font-size: 13px; }
+
+.totals { display: flex; gap: 10px; margin-bottom: 12px; }
+
+.total-box h4 { margin: 0; font-size: 13px; color: var(--muted); }
+/* garante que os boxes possam encolher dentro do flex container */
+.total-box {
+  min-width: 0;           /* <--- essencial em flex para permitir overflow oculto */
+  text-align: center;
+}
+
+/* estilo do valor: uma linha só; cortar com "..." se necessário */
+.total-box p {
+  margin: 8px 0 0;
+  font-size: 18px;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+
+.transactions-list { margin-top: 8px; }
+.tx-item {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px; border-radius: 8px; border: 1px solid #f1f3f6;
+  margin-bottom: 8px; background: rgba(255,255,255,0.6);
+}
+.tx-left { display: flex; gap: 10px; align-items: center; }
+.tx-type {
+  width: 44px; height: 44px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; color: #fff;
+}
+.tx-type.income { background: var(--accent); }
+.tx-type.expense { background: var(--danger); }
+.tx-meta { font-size: 13px; }
+.tx-value { font-weight: 700; }
+.tx-actions button { background: transparent; border: 0; cursor: pointer; color: var(--muted); }
+
+footer {
+  max-width: 1000px; margin: 22px auto; padding: 12px 16px;
+  color: var(--muted); text-align: center; font-size: 13px;
+}
+
+@media (max-width: 880px) {
+  .container { grid-template-columns: 1fr; padding-bottom: 18px; }
+  header { padding: 14px; }
+}
