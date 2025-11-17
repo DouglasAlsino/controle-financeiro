@@ -116,3 +116,11 @@ footer {
   .container { grid-template-columns: 1fr; padding-bottom: 18px; }
   header { padding: 14px; }
 }
+
+/* estilo para a seção de gráficos */
+#charts-section canvas {
+  background: #fff;
+  border-radius: 8px;
+  padding: 8px;
+  box-shadow: 0 6px 18px rgba(20,20,40,0.04);
+}
