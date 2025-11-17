@@ -88,13 +88,30 @@
       <input id="import-file" type="file" accept="application/json" style="display:none">
       <div style="flex:1"></div>
       <button id="clear-all" class="btn" style="background:#fff; border:1px solid #f1f3f6">Limpar tudo</button>
+
     </div>
   </section>
+
+    <!-- Seção de Gráficos -->
+  <section class="card" id="charts-section" style="grid-column:1 / -1;">
+    <h3 style="margin:0 0 8px 0">Gráficos</h3>
+    <div style="display:flex; flex-wrap:wrap; gap:20px; align-items:flex-start;">
+      <div style="flex:1 1 420px; min-width:300px;">
+        <canvas id="chart-months" width="400" height="220"></canvas>
+      </div>
+      <div style="flex:1 1 320px; min-width:300px;">
+        <canvas id="chart-categories" width="400" height="220"></canvas>
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <footer>
   Protótipo criado para a Sprint 1 — Implementação inicial do fluxo de transações.
 </footer>
+    
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
   <script src="js/script.js" defer></script>
 </body>
