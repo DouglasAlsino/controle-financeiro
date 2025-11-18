@@ -124,3 +124,203 @@ footer {
   padding: 8px;
   box-shadow: 0 6px 18px rgba(20,20,40,0.04);
 }
+
+.filters-container {
+  display: flex;
+  gap: 16px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.filter-item label {
+  font-size: 14px;
+  color: #444;
+}
+
+.filter-item select {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  min-width: 140px;
+}
+
+/* --- Layout fixes para alinhar filtros, cards e gráficos --- */
+
+/* garante que o container principal mantenha um gap limpo */
+.container {
+  max-width: 1100px;
+  margin: 24px auto;
+  padding: 0 16px;
+  display: grid;
+  grid-template-columns: 380px 1fr; /* largura fixa para coluna esquerda */
+  gap: 20px;
+}
+
+/* faz os cards terem espaçamento inferior consistente */
+.card {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 6px 18px rgba(20,20,40,0.06);
+  margin-bottom: 0; /* controlar espaçamento via grid gap */
+}
+
+/* seção de filtros deve ocupar as duas colunas (ficar full width) */
+#filters-section {
+  grid-column: 1 / -1; /* ocupa toda a largura da grid */
+  padding: 14px;
+}
+
+/* organiza itens do bloco de filtros alinhados ao topo */
+.filters-container {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* deixa os selects compactos e alinhados */
+.filter-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* reduz o tamanho do card de transações na coluna direita, quando necessário */
+.transactions-list, #transactions {
+  min-width: 0;
+}
+
+/* totals: permite que boxes encolham e quebrem visual sem vazar */
+.totals { 
+  display:flex; 
+  gap:10px; 
+  flex-wrap:wrap;
+}
+.total-box {
+  flex: 1 1 100px;
+  min-width: 120px;
+  text-align: center;
+}
+
+/* garante que tx-item não estoure e que quebre conteúdo se necessário */
+.tx-item { 
+  display:flex; 
+  align-items:center; 
+  justify-content:space-between;
+  word-break: break-word;
+}
+
+/* responsividade: em telas pequenas passa para 1 coluna e ajusta paddings */
+@media (max-width: 900px) {
+  .container { grid-template-columns: 1fr; padding-bottom: 18px; }
+  #filters-section { padding: 12px; }
+  .container > section.card { width: 100%; }
+  .totals { justify-content: space-between; }
+}
+
+/* Charts: garantir altura mínima e responsividade dentro do card */
+#charts-section { 
+  grid-column: 1 / -1;
+  padding: 12px;
+}
+#charts-section .chart-wrap {
+  background:#fff;
+  border-radius:8px;
+  padding:8px;
+  box-shadow:0 6px 18px rgba(20,20,40,0.03);
+}
+#chart-months, #chart-categories {
+  width: 100% !important;
+  height: 220px !important; /* ajustar se quiser mais alto */
+}
+
+/* pequenos ajustes visuais */
+.card h3 { margin-bottom: 10px; font-size:16px; }
+.transactions-list .muted { font-size:13px; }
+
+/* botão limpar filtros posicionamento */
+#clear-filters { height:36px; align-self:flex-end; }
+
+/* evita que .tx-value quebre layout - define max-width */
+.tx-value { max-width: 140px; text-align:right; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+
+/* =========================
+   Ajustes de layout (desktop)
+   ========================= */
+
+/* garantir que os itens do grid comecem alinhados ao topo */
+.container {
+  align-items: start; /* faz com que colunas com diferentes alturas fiquem alinhadas ao topo */
+  row-gap: 20px; /* espaço vertical entre linhas da grid */
+}
+
+/* Força os cards a não crescerem desnecessariamente em altura */
+.container > .card {
+  align-self: start;
+}
+
+/* Coloca a seção de filtros na coluna da direita (quando houver 2 colunas) */
+/* Isso faz os filtros aparecerem ao lado do formulário em telas largas */
+@media (min-width: 900px) {
+  /* se existir um elemento com id #filters-section, este será posicionado à direita do form */
+  #filters-section {
+    grid-column: 2 / 3;  /* ocupa a coluna direita */
+    grid-row: 1;         /* fica na primeira linha do grid (lado do formulário) */
+    padding: 12px 16px;
+    margin: 0;
+  }
+
+  /* garante que a seção de transações fique abaixo dos filtros na coluna direita */
+  /* assume que a seção de transações seja a card na coluna direita (se tiver id, substitua .card.right) */
+  /* selector genérico: todos os cards que estão na segunda coluna após a primeira linha */
+  .container > .card:nth-child(n) {
+    /* noop: regra placeholder - não remove */
+  }
+}
+
+/* manter filtros full-width em telas pequenas (comportamento atual) */
+@media (max-width: 899px) {
+  #filters-section { grid-column: 1 / -1; }
+}
+
+/* evita que filtros “empurrem” o conteúdo devido a padding/height */
+#filters-section .filters-container {
+  gap: 12px;
+  align-items: center;
+}
+
+/* se houver overflow visual no lado direito (cards empurrando), limitar largura do left-column */
+@media (min-width: 1100px) {
+  .container { max-width: 1200px; }
+  /* estabiliza a largura da coluna esquerda */
+  .container { grid-template-columns: 380px 1fr; }
+}
+
+/* ajuste visual para o card de transações (garante que ele se mantenha na coluna direita) */
+.transactions-card {
+  /* se você der ao section de transações a classe transactions-card, ela garante posição e encolhimento */
+  min-width: 0; 
+  align-self: start;
+}
+
+/* pequenos refinamentos para os charts (não fiquem maiores que o contêiner) */
+#charts-section {
+  grid-column: 1 / -1;
+  padding: 12px;
+}
+#charts-section .chart-wrap { display:block; width:100%; box-sizing:border-box; }
+#chart-months, #chart-categories { width:100% !important; height: 220px !important; }
+
+/* evita que filtros e botões quebrados empurrem o layout */
+.filters-container button,
+.filters-container select {
+  height: 36px;
+}
+
+/* se algo ainda ficar deslocado, reduzir o margin-top dos cards na coluna direita */
+@media (min-width: 900px) {
+  .container > .card {
+    margin-top: 0;
+  }
+}
