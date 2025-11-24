@@ -97,11 +97,11 @@ input, select {
 }
 .tx-left { display: flex; gap: 10px; align-items: center; }
 .tx-type {
-  width: 44px; height: 44px; border-radius: 8px;
+  width: 44px; height: 44px; min-width: 44px; min-height: 44px; border-radius: 8px;
   display: flex; align-items: center; justify-content: center;
   font-weight: 700; color: #fff;
 }
-.tx-type.income { background: var(--accent); }
+.tx-type.income { background: var(--accent);}
 .tx-type.expense { background: var(--danger); }
 .tx-meta { font-size: 13px; }
 .tx-value { font-weight: 700; }

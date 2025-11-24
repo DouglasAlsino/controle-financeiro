@@ -36,13 +36,13 @@
 
       <div>
         <label for="desc">Descrição</label>
-        <input id="desc" type="text" placeholder="Ex: Salário, Supermercado" required>
+        <input id="desc" type="text" placeholder="Ex: Salário, Supermercado" required maxlength="80">
       </div>
 
       <div class="row" style="margin-top:8px">
         <div style="flex:1">
           <label for="category">Categoria</label>
-          <input id="category" type="text" placeholder="Ex: Renda, Alimentação" required>
+          <input id="category" type="text" placeholder="Ex: Renda, Alimentação" required maxlength="32">
         </div>
         <div style="width:160px">
           <label for="value">Valor (R$)</label>
@@ -61,16 +61,16 @@
     <hr style="margin:16px 0; border:none; border-top:1px solid #eef2f6">
 
     <div class="totals">
-      <div class="total-box">
-        <h4>Receitas</h4>
+      <div class="total-box" style="color: #2e7d32;">
+        <h4>💰 Receitas</h4>
         <p id="total-income">R$ 0,00</p>
       </div>
-      <div class="total-box">
-        <h4>Despesas</h4>
+      <div class="total-box" style="color: #c62828;">
+        <h4>💸 Despesas</h4>
         <p id="total-expense">R$ 0,00</p>
       </div>
-      <div class="total-box">
-        <h4>Saldo</h4>
+      <div class="total-box" style="color: #1565c0;">
+        <h4>⚖️ Saldo</h4>
         <p id="total-balance">R$ 0,00</p>
       </div>
     </div>
@@ -151,4 +151,3 @@
   <script src="js/script.js" defer></script>
 </body>
 </html>
-
