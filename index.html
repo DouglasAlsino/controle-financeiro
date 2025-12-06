@@ -5,18 +5,46 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Controle Financeiro - Protótipo</title>
   <link rel="stylesheet" href="css/style.css">
-</head>
+  </head>
 <body>
+
+<div id="auth-overlay">
+  <div class="auth-card">
+    <h2 id="auth-title">Login</h2>
+    <form id="auth-form">
+      <div id="auth-name-container" style="margin-bottom:15px; display:none;">
+        <label for="auth-name">Nome</label>
+        <input type="text" id="auth-name" placeholder="Seu Nome">
+      </div>
+      <div style="margin-bottom:15px;">
+        <label for="auth-email">Email</label>
+        <input type="email" id="auth-email" required placeholder="seu@email.com">
+      </div>
+      <div style="margin-bottom:15px;">
+        <label for="auth-pass">Senha</label>
+        <input type="password" id="auth-pass" required placeholder="********">
+      </div>
+      <div id="auth-error" style="color:red; font-size:13px; margin-bottom:10px; display:none;"></div>
+      <button type="submit" id="auth-submit-btn" class="btn btn-primary" style="width:100%;">Entrar</button>
+    </form>
+    <div style="margin-top:15px; font-size:13px; text-align:center;">
+      <span id="toggle-text">Não tem conta?</span>
+      <a href="#" id="toggle-auth">Cadastre-se</a>
+    </div>
+  </div>
+</div>
 
 <header>
   <div>
     <h1>Controle Financeiro</h1>
     <div class="subtitle">Protótipo — Sprint 1</div>
   </div>
-  <div class="muted">Usuário: Você</div>
+  <div class="muted">
+      Usuário: <span id="user-display">Você</span> | <a href="#" id="logout-btn" style="color:white;">Sair</a>
+  </div>
 </header>
 
-<main class="container">
+<main class="container" id="main-content">
   <section class="card">
     <h3>Nova Transação</h3>
     <form id="tx-form" autocomplete="off">
@@ -76,40 +104,38 @@
     </div>
   </section>
 
-  <!-- FILTROS DE PERÍODO -->
-<section class="card" id="filters-section" style="grid-column: 1 / -1;">
-  <h3>Filtrar por Período</h3>
-  
-  <div class="filters-container">
-    <div class="filter-item">
-      <label for="filter-month">Mês:</label>
-      <select id="filter-month">
-        <option value="">Todos</option>
-        <option value="1">Janeiro</option>
-        <option value="2">Fevereiro</option>
-        <option value="3">Março</option>
-        <option value="4">Abril</option>
-        <option value="5">Maio</option>
-        <option value="6">Junho</option>
-        <option value="7">Julho</option>
-        <option value="8">Agosto</option>
-        <option value="9">Setembro</option>
-        <option value="10">Outubro</option>
-        <option value="11">Novembro</option>
-        <option value="12">Dezembro</option>
-      </select>
-    </div>
+  <section class="card" id="filters-section" style="grid-column: 1 / -1;">
+    <h3>Filtrar por Período</h3>
+    <div class="filters-container">
+      <div class="filter-item">
+        <label for="filter-month">Mês:</label>
+        <select id="filter-month">
+          <option value="">Todos</option>
+          <option value="1">Janeiro</option>
+          <option value="2">Fevereiro</option>
+          <option value="3">Março</option>
+          <option value="4">Abril</option>
+          <option value="5">Maio</option>
+          <option value="6">Junho</option>
+          <option value="7">Julho</option>
+          <option value="8">Agosto</option>
+          <option value="9">Setembro</option>
+          <option value="10">Outubro</option>
+          <option value="11">Novembro</option>
+          <option value="12">Dezembro</option>
+        </select>
+      </div>
 
-    <div class="filter-item">
-      <label for="filter-year">Ano:</label>
-      <select id="filter-year">
-        <option value="">Todos</option>
-      </select>
-    </div>
+      <div class="filter-item">
+        <label for="filter-year">Ano:</label>
+        <select id="filter-year">
+          <option value="">Todos</option>
+        </select>
+      </div>
 
-    <button id="clear-filters" class="btn">Limpar Filtros</button>
-  </div>
-</section>
+      <button id="clear-filters" class="btn">Limpar Filtros</button>
+    </div>
+  </section>
 
   <section class="card">
     <h3>Transações</h3>
@@ -123,11 +149,9 @@
       <input id="import-file" type="file" accept="application/json" style="display:none">
       <div style="flex:1"></div>
       <button id="clear-all" class="btn" style="background:#fff; border:1px solid #f1f3f6">Limpar tudo</button>
-
     </div>
   </section>
 
-    <!-- Seção de Gráficos -->
   <section class="card" id="charts-section" style="grid-column:1 / -1;">
     <h3 style="margin:0 0 8px 0">Gráficos</h3>
     <div style="display:flex; flex-wrap:wrap; gap:20px; align-items:flex-start;">
@@ -147,7 +171,6 @@
 </footer>
     
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
   <script src="js/script.js" defer></script>
 </body>
 </html>
