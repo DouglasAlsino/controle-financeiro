@@ -5,48 +5,6 @@ O sistema tem como objetivo auxiliar usuários no **gerenciamento de receitas e 
 
 ---
 
-## 🛠️ Como Executar o Projeto
-
-Para rodar a aplicação localmente, incluindo o sistema de login, siga os passos abaixo:
-
----
-
-### 🔧 Pré-requisitos
-
-Certifique-se de ter instalado em sua máquina:
-
-- **Node.js**
-- **npm**
-
----
-
-### 🚀 Passo a Passo
-
-#### 1. Clone o repositório (ou baixe os arquivos):
-
-```bash
-git clone https://github.com/seu-usuario/controle-financeiro.git
-```
-
-#### 2. Acesse o repositório:
-
-```bash
-cd controle-financeiro
-```
-
-#### 3. Instale as dependências:
-
-```bash 
-npm install
-```
-
-#### 4. Inicie o servidor:
-
-```bash
-npm start
-```
-
----
 ## 🚀 Status do Projeto
 ✅ **Sprint 1 – Concluída**  
 Foco: Implementação inicial do fluxo de transações (formulário, listagem e cálculos).
@@ -87,16 +45,14 @@ controle-financeiro/
 - **Trello (Kanban e organização de tarefas)**  
 
 ---
-✅ **Sprint 2 – Concluída**  
-- [x] Implementar visualização de **gráficos de despesas e receitas** (Chart.js).  
-- [x] Adicionar **filtros por período (mês/ano)**.  
-- [x] Implementar **validação mais robusta de formulário**.  
-- [x] Melhorar **design do painel de totais** (cores e ícones).  
-- [x] Iniciar **planejamento para autenticação de usuário** (fase futura).
+
+## 🧾 Próximos Passos (Sprint 2)
+- [ ] Implementar visualização de **gráficos de despesas e receitas** (Chart.js).  
+- [ ] Adicionar **filtros por período (mês/ano)**.  
+- [ ] Implementar **validação mais robusta de formulário**.  
+- [ ] Melhorar **design do painel de totais** (cores e ícones).  
+- [ ] Iniciar **planejamento para autenticação de usuário** (fase futura).
 
 ---
 
-## 🧾 Próximos Passos (Sprint 3)
-## Testes
 
-- [ ] **Testes unitários** - para cada funcionalidade crítica.
